@@ -1,0 +1,78 @@
+:root {
+  --cyan: hsl(180, 66%, 49%);
+  --red: hsl(0, 87%, 67%);
+  --gray: hsl(0, 0%, 75%);
+  --grayishViolet: hsl(257, 7%, 63%);
+  --dark-violet: hsl(257, 27%, 26%);
+  --darkBlue: hsl(255, 11%, 22%);
+  --darkViolet: hsl(260, 8%, 14%);
+  --white: hsl(360, 100%, 100%);
+  --size: 18px;
+  --family: "Poppins", sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: var(--family);
+  font-size: var(--size);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button.cyan {
+  border: 0;
+  color: var(--white);
+  border-radius: 20px;
+  background-color: var(--cyan);
+}
+
+button {
+  padding: 10px 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+body > header {
+  padding: 20px 7%;
+}
+
+body main > * {
+  padding: 20px 7%;
+}
+
+p {
+  color: var(--grayishViolet);
+}
+
+@media screen and (max-width: 1600px) {
+  body > header {
+    padding: 20px 5%;
+  }
+
+  body main > * {
+    padding: 20px 5%;
+  }
+}
+
+@media screen and (max-width: 1399px) {
+  :root {
+    --size: 14px;
+  }
+}
