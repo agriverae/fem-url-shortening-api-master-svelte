@@ -2,7 +2,12 @@
   import ShortLink from "../ShortLink/ShortLink.svelte";
   import Card from "../Card/Card.svelte"
   let links = [];
-  const handleClick = (id) => {
+  const handleClick = (id, shorturl) => {
+    navigator.clipboard.writeText(shorturl).then(function () {
+        console.log('Async: Copying to clipboard was successful!');
+    }, function (err) {
+        console.error('Async: Could not copy text: ', err);
+    });
     if(!links[id].isSelected)
       links[id].isSelected = true;
   }
@@ -15,7 +20,7 @@
     <div class="link">
       <p class="link-name">{link.url}</p>
       <p class="short-link cyan">https://rel.ink/{link.hashid}</p>
-      <button on:click={() => handleClick(index) } class="{link.isSelected? "violet" : "cyan"}">{link.isSelected? "Copied" : "Copy"}</button>
+      <button on:click={() => handleClick(index, 'https://rel.ink/' + link.hashid) } class="{link.isSelected? "violet" : "cyan"}">{link.isSelected? "Copied" : "Copy"}</button>
     </div>
     {/each}
   </div>
